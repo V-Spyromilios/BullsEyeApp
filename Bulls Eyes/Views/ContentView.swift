@@ -11,7 +11,7 @@ struct ContentView: View
 	@State private var alertIsVisible: Bool = false
 	@State private var sliderValue: Double = 42.0
 	@State var game: Game = Game()
-	
+
 	var body: some View
 	{
 		ZStack
@@ -19,16 +19,15 @@ struct ContentView: View
 			BackgroundView(game: $game) //padding inside
 			VStack
 			{
-				//ImageView()
-				IntructionsView(text: "Try to hit the Target".uppercased(), game: $game)
-				sliderView(sliderValue: $sliderValue, textLeft: "0", textRight: "100")
-				theButton(alert: $alertIsVisible, sliderValue: $sliderValue, game: $game).padding(.top, 50)
+				IntructionsView(text: "Try to hit the Target".uppercased(), game: $game).padding(.bottom, 100)
+				theButton(alert: $alertIsVisible, sliderValue: $sliderValue, game: $game)
 				
 			}
-			
+			sliderView(sliderValue: $sliderValue, textLeft: "0", textRight: "100").padding(.top,50)
 		}
 		
 	}
+
 	struct ContentView_Previews: PreviewProvider {
 		static var previews: some View {
 			ContentView()

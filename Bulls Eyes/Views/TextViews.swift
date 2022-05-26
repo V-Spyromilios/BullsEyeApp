@@ -36,6 +36,7 @@ struct BigNumber: View {
 			.fontWeight(.black)
 			.padding()
 			.border(Color.red, width: 4)
+			.background(.white.opacity(0.3))
 			.shadow(radius: 5.0)
 			.clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
 	}
@@ -65,13 +66,32 @@ struct sliderView: View {
 
 struct LabelText: View {
 	var text: String
-	
 	var body: some View {
 		Text(text)
 			.font(.caption)
 			.bold()
 			.kerning(1.5)
 			.foregroundColor(Color("TextColor"))
+	}
+}
+
+struct BodyText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			
+	}
+}
+
+struct ButtonText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			.padding()
+			.background(Color.accentColor)
+			.frame(minWidth: .infinity)
+		
+			
 	}
 }
 
@@ -83,6 +103,8 @@ struct TextViews_Previews: PreviewProvider {
 			sliderView(sliderValue: .constant(50.0), textLeft: "0", textRight: "100")
 			
 			LabelText(text: "42")
+			BodyText(text: "Body Text")
+			ButtonText(text: "Button Text")
 			
 		}
 	}
