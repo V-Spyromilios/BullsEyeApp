@@ -14,6 +14,7 @@ enum Constants {
 		public static let roundedViewLength = CGFloat(68.0)
 		public static let roundedViewHeight = CGFloat(56.0)
 		public static let ringsStrokeWidth = CGFloat(20.0)
+		public static let roundRectCornerRadius = CGFloat(21.0)
 	}
 	//enum whatEver {...
 }

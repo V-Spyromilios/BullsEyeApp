@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct RoundedImageFilled: View {
+	@Binding var game: Game
+	
 	var systemName: String
 	var body: some View {
+		withAnimation {
+			Button(action: {game.startOver()}) {
 			Image(systemName: systemName)
 				.font(.title)
 				.foregroundColor(Color("ButtonFilledTextColor"))
@@ -19,11 +23,14 @@ struct RoundedImageFilled: View {
 					.fill(Color("ButtonFilledColor")))
 				.padding(.top)
 	}
+		}
+}
 }
 
 struct PreviewViewFilled: View {
+	@Binding var game: Game
 	var body: some View {
-		RoundedImageFilled(systemName: "list.dash")
+		RoundedImageFilled(game: $game, systemName: "list.dash")
 	}
 }
 
@@ -51,7 +58,8 @@ struct RoundedImageStroked: View {
 	@Binding var game: Game
 	var systemName: String
     var body: some View {
-		Button(action: {game.startOver()}) //action inside {} new {} for content. SF Symbols are not active 'ready' buttons. Need to add Button(action, Content)
+		withAnimation {
+			Button(action: {game.startOver()}) //action inside {} new {} for content. SF Symbols are not active 'ready' buttons. Need to add Button(action, Content)
 		{
 			Image(systemName: systemName)
 				.font(.title)
@@ -60,10 +68,12 @@ struct RoundedImageStroked: View {
 				.overlay(
 					Circle()
 						.stroke(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
+						
 				)
 				.padding(.top)
+		}
+			}
 	}
-}
 }
 
 struct PreviewViewStroked: View {
@@ -74,15 +84,16 @@ struct PreviewViewStroked: View {
 }
 
 struct RoundedViews_Previews: PreviewProvider {
+	@Binding var game: Game
     static var previews: some View {
 		HStack(spacing: 30.0) {
 			PreviewViewStroked(game: .constant(Game()))
-			PreviewViewFilled()
+			PreviewViewFilled(game: .constant(Game()))
 			RoundRectText(text: "120")
 		}
 		HStack(spacing: 30.0) {
 			PreviewViewStroked(game: .constant(Game()))
-			PreviewViewFilled()
+			PreviewViewFilled(game: .constant(Game()))
 			RoundRectText(text: "120")
 				.preferredColorScheme(.dark)
 		}

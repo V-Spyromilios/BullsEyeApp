@@ -28,7 +28,7 @@ struct topView: View {
 		HStack {
 			RoundedImageStroked(game: $game, systemName: "arrow.counterclockwise")
 				Spacer()
-			RoundedImageFilled(systemName: "list.dash")
+			RoundedImageFilled(game: $game, systemName: "list.dash")
 				
 		}
 	}

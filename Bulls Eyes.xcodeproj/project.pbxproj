@@ -11,6 +11,7 @@
 		EF46FCA0283675440039F6E9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46FC9F283675440039F6E9 /* RoundedViews.swift */; };
 		EF6D940C283286ED0025443C /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D940B283286ED0025443C /* TextViews.swift */; };
 		EF7A24622840C2D7008B5489 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7A24612840C2D7008B5489 /* PointsView.swift */; };
+		EF8BC396284132EB00B4F3AD /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BC395284132EB00B4F3AD /* LeaderboardView.swift */; };
 		EF98B366282E8D4B0096E6C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF98B365282E8D4B0096E6C5 /* Game.swift */; };
 		EF98B36E282E9E5B0096E6C5 /* Bulls_EyesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF98B36D282E9E5B0096E6C5 /* Bulls_EyesTests.swift */; };
 		EFA288AD2836A60F009E3C53 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA288AC2836A60F009E3C53 /* BackgroundView.swift */; };
@@ -38,6 +39,7 @@
 		EF46FC9F283675440039F6E9 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		EF6D940B283286ED0025443C /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		EF7A24612840C2D7008B5489 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		EF8BC395284132EB00B4F3AD /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		EF98B365282E8D4B0096E6C5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EF98B36B282E9E5B0096E6C5 /* Bulls EyesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bulls EyesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF98B36D282E9E5B0096E6C5 /* Bulls_EyesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulls_EyesTests.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				EF46FC9F283675440039F6E9 /* RoundedViews.swift */,
 				EFA288AC2836A60F009E3C53 /* BackgroundView.swift */,
 				EF7A24612840C2D7008B5489 /* PointsView.swift */,
+				EF8BC395284132EB00B4F3AD /* LeaderboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				EFA288AD2836A60F009E3C53 /* BackgroundView.swift in Sources */,
 				EFEB9ADF2841093D008FD8B9 /* Constants.swift in Sources */,
+				EF8BC396284132EB00B4F3AD /* LeaderboardView.swift in Sources */,
 				EF46FC9E2836671B0039F6E9 /* Shapes.swift in Sources */,
 				EFB0C6602832882B00C15059 /* ImageView.swift in Sources */,
 				EFCF30A1282BDF90000968B2 /* ContentView.swift in Sources */,
