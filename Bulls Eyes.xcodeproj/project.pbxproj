@@ -10,6 +10,7 @@
 		EF46FC9E2836671B0039F6E9 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46FC9D2836671B0039F6E9 /* Shapes.swift */; };
 		EF46FCA0283675440039F6E9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46FC9F283675440039F6E9 /* RoundedViews.swift */; };
 		EF6D940C283286ED0025443C /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D940B283286ED0025443C /* TextViews.swift */; };
+		EF7A24622840C2D7008B5489 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7A24612840C2D7008B5489 /* PointsView.swift */; };
 		EF98B366282E8D4B0096E6C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF98B365282E8D4B0096E6C5 /* Game.swift */; };
 		EF98B36E282E9E5B0096E6C5 /* Bulls_EyesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF98B36D282E9E5B0096E6C5 /* Bulls_EyesTests.swift */; };
 		EFA288AD2836A60F009E3C53 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA288AC2836A60F009E3C53 /* BackgroundView.swift */; };
@@ -18,6 +19,7 @@
 		EFCF30A1282BDF90000968B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF30A0282BDF90000968B2 /* ContentView.swift */; };
 		EFCF30A3282BDF93000968B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCF30A2282BDF93000968B2 /* Assets.xcassets */; };
 		EFCF30A6282BDF93000968B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCF30A5282BDF93000968B2 /* Preview Assets.xcassets */; };
+		EFEB9ADF2841093D008FD8B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB9ADE2841093D008FD8B9 /* Constants.swift */; };
 		EFFC256D28353AB300F5C98A /* theButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFC256C28353AB300F5C98A /* theButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 		EF46FC9D2836671B0039F6E9 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		EF46FC9F283675440039F6E9 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		EF6D940B283286ED0025443C /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		EF7A24612840C2D7008B5489 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		EF98B365282E8D4B0096E6C5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EF98B36B282E9E5B0096E6C5 /* Bulls EyesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bulls EyesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF98B36D282E9E5B0096E6C5 /* Bulls_EyesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulls_EyesTests.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		EFCF30A0282BDF90000968B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EFCF30A2282BDF93000968B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFCF30A5282BDF93000968B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EFEB9ADE2841093D008FD8B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EFFC256C28353AB300F5C98A /* theButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,7 @@
 				EF46FC9D2836671B0039F6E9 /* Shapes.swift */,
 				EF46FC9F283675440039F6E9 /* RoundedViews.swift */,
 				EFA288AC2836A60F009E3C53 /* BackgroundView.swift */,
+				EF7A24612840C2D7008B5489 /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				EF98B365282E8D4B0096E6C5 /* Game.swift */,
+				EFEB9ADE2841093D008FD8B9 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,12 +257,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFA288AD2836A60F009E3C53 /* BackgroundView.swift in Sources */,
+				EFEB9ADF2841093D008FD8B9 /* Constants.swift in Sources */,
 				EF46FC9E2836671B0039F6E9 /* Shapes.swift in Sources */,
 				EFB0C6602832882B00C15059 /* ImageView.swift in Sources */,
 				EFCF30A1282BDF90000968B2 /* ContentView.swift in Sources */,
 				EF6D940C283286ED0025443C /* TextViews.swift in Sources */,
 				EF46FCA0283675440039F6E9 /* RoundedViews.swift in Sources */,
 				EFFC256D28353AB300F5C98A /* theButton.swift in Sources */,
+				EF7A24622840C2D7008B5489 /* PointsView.swift in Sources */,
 				EF98B366282E8D4B0096E6C5 /* Game.swift in Sources */,
 				EFCF309F282BDF90000968B2 /* Bulls_EyesApp.swift in Sources */,
 			);

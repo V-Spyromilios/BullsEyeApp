@@ -12,7 +12,6 @@ struct IntructionsView: View {
 	@Binding var game: Game
     var body: some View {
 		VStack {
-			Text("🎯🎯🎯")
 			Text(text)
 				.foregroundColor(Color("TextColor"))
 				.italic()
@@ -21,7 +20,6 @@ struct IntructionsView: View {
 				.multilineTextAlignment(.center)
 				.font(.title2)
 				.lineSpacing(4.0)
-			BigNumber(text: String(game.target))
 		}
     }
 }
@@ -35,9 +33,6 @@ struct BigNumber: View {
 			.font(.title)
 			.fontWeight(.black)
 			.padding()
-			.border(Color.red, width: 4)
-			.background(.white.opacity(0.3))
-			.shadow(radius: 5.0)
 			.clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
 	}
 }
@@ -57,9 +52,8 @@ struct sliderView: View {
 				.foregroundColor(Color("TextColor"))
 				.font(.title2).bold()
 				.frame(width: 40.0)
+				.transition(.scale)
 		}
-		
-		
 	}
 }
 
@@ -79,7 +73,10 @@ struct BodyText: View {
 	var text: String
 	var body: some View {
 		Text(text)
-			
+			.font(.subheadline)
+			.fontWeight(.semibold)
+			.multilineTextAlignment(.center)
+			.lineSpacing(12.0)
 	}
 }
 
@@ -87,11 +84,12 @@ struct ButtonText: View {
 	var text: String
 	var body: some View {
 		Text(text)
+			.bold()
 			.padding()
+			.frame(maxWidth: 300)
+			.foregroundColor(.white)
 			.background(Color.accentColor)
-			.frame(minWidth: .infinity)
-		
-			
+			.cornerRadius(Constants.General.roundRectCornerRadius)
 	}
 }
 
@@ -100,11 +98,12 @@ struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		VStack {
 			IntructionsView(text: "TEST", game: .constant(Game()))
+			BigNumber(text: "42")
 			sliderView(sliderValue: .constant(50.0), textLeft: "0", textRight: "100")
 			
-			LabelText(text: "42")
-			BodyText(text: "Body Text")
-			ButtonText(text: "Button Text")
+			LabelText(text: "420")
+			BodyText(text: "You scored 200 points! \n 🎉🎉🎉")
+			ButtonText(text: "Start New Round").padding()
 			
 		}
 	}

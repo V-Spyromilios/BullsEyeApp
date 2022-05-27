@@ -13,11 +13,11 @@ struct theButton: View {
 	@Binding var game: Game
 	
 	var body: some View {
-		Button(action:
-				{
-			self.alert = true
-			
-		})
+		Button(action: {
+			withAnimation{
+			alert.toggle()
+			}
+			})
 		{
 			Text("Hit Me!".uppercased()).font(.title2).bold()
 			
@@ -32,16 +32,14 @@ struct theButton: View {
 		.cornerRadius(20.0)
 		.overlay(
 				RoundedRectangle(cornerRadius: 20.0)
-				  .strokeBorder(Color.white, lineWidth: 2.0)
+				  .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
 			  )
 		.padding(.bottom)
 		.alert(isPresented: $alert, content: {
 			let asInt: Int = Int(self.sliderValue)
 			let points = game.fn_points(sliderValue: asInt)
-			print(points)
-			return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(asInt).\n" + "You scored \(points) points this round."), dismissButton: .default(Text("OK")) {
-				game.startNewRound(points: points)
-			})
+
+			return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(asInt).\n" + "You scored \(points) points this round."), dismissButton: .default(Text("OK")))
 			})
 			}
 

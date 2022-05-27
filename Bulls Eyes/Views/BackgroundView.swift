@@ -16,7 +16,6 @@ struct BackgroundView: View {
 					Spacer()
 					bottomView(game: $game).padding()
 				}
-				//.padding()
 				.background(ringsView()) //not as Zstack containing ringsView and Vstack of other views
 			
     }
@@ -63,7 +62,7 @@ struct ringsView: View {
 			ForEach(1..<6) {ring in let size = CGFloat(ring * 100)
 				let opac = colorScheme == .dark ? 0.1: 0.3
 			Circle()
-					.stroke(lineWidth: 20.0)
+					.stroke(lineWidth: Constants.General.ringsStrokeWidth)
 					.fill(RadialGradient(colors: [Color("ringsColor").opacity(opac * 0.8), Color("ringsColor").opacity(0.0)], center:.center, startRadius: 200, endRadius: 300))
 					.frame(width: size, height: size)
 			}
