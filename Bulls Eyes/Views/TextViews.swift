@@ -80,6 +80,17 @@ struct BodyText: View {
 	}
 }
 
+struct LeaderboardroundedText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			.font(.subheadline)
+			.fontWeight(.semibold)
+			.multilineTextAlignment(.center)
+			.lineSpacing(12.0)
+	}
+}
+
 struct ButtonText: View {
 	var text: String
 	var body: some View {
@@ -90,6 +101,43 @@ struct ButtonText: View {
 			.foregroundColor(.white)
 			.background(Color.accentColor)
 			.cornerRadius(Constants.General.roundRectCornerRadius)
+	}
+}
+
+struct leaderScoreView: View {
+	let score: Int
+
+	var body: some View {
+		Text(String(score))
+			.bold()
+			.font(.title3)
+			.kerning(-0.2)
+			.foregroundColor(Color("TextColor"))
+			
+	}
+}
+
+struct leaderDateView: View {
+	let date: Date
+
+	var body: some View {
+		Text(date,style: .time)
+			.font(.title3)
+			.bold()
+			.kerning(-0.2)
+			.foregroundColor(Color("TextColor"))
+	}
+}
+
+struct bigBoldText: View {
+	let text: String
+
+	var body: some View {
+		Text(text.uppercased())
+			.font(.title)
+			.kerning(2.0)
+			.foregroundColor(Color("TextColor"))
+			.fontWeight(.black)
 	}
 }
 
@@ -104,6 +152,10 @@ struct TextViews_Previews: PreviewProvider {
 			LabelText(text: "420")
 			BodyText(text: "You scored 200 points! \n 🎉🎉🎉")
 			ButtonText(text: "Start New Round").padding()
+			leaderScoreView(score: 1200)
+			leaderDateView(date: Date())
+			Spacer()
+			bigBoldText(text: "leaderboard")
 			
 		}
 	}

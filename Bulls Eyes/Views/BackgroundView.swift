@@ -8,32 +8,37 @@
 import SwiftUI
 
 struct BackgroundView: View {
+	@State var leaderIsVisible: Bool = false
 	@Binding var game: Game
 
     var body: some View {
 				VStack {
-					topView(game: $game).padding(.horizontal)
+					topView(leaderIsVisible: $leaderIsVisible, game: $game).padding(.horizontal)
 					Spacer()
 					bottomView(game: $game).padding()
 				}
-				.background(ringsView()) //not as Zstack containing ringsView and Vstack of other views
+				.background(ringsView()) ///not as Zstack containing ringsView and Vstack of other views
 			
     }
 }
 
 struct topView: View {
+	@Binding var leaderIsVisible:Bool
 	@Binding var game: Game
 
 	var body: some View {
 		HStack {
 			RoundedImageStroked(game: $game, systemName: "arrow.counterclockwise")
 				Spacer()
-			RoundedImageFilled(game: $game, systemName: "list.dash")
-				
+			withAnimation {
+				Button(action: { leaderIsVisible = true})
+				{
+			RoundedImageFilled(systemName: "list.dash")
+				}.sheet(isPresented: $leaderIsVisible, onDismiss: {}, content: { LeadboardView(leaderIsVisible: $leaderIsVisible, game: $game) })
+			}
 		}
 	}
 }
-
 struct bottomView: View {
 	@Binding var game: Game
 
@@ -74,7 +79,7 @@ struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
 			
 			BackgroundView(game: .constant(Game()))
-				.preferredColorScheme(.dark)
+				.preferredColorScheme(.light)
 			//.previewInterfaceOrientation(.landscapeLeft)
 			// Instane Just For Preview
 		

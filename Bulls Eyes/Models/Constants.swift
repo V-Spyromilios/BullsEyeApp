@@ -16,5 +16,9 @@ enum Constants {
 		public static let ringsStrokeWidth = CGFloat(20.0)
 		public static let roundRectCornerRadius = CGFloat(21.0)
 	}
-	//enum whatEver {...
+	enum Leaderboard {
+		public static let scoreColWidth = CGFloat(50.0)
+		public static let dateColWidth = CGFloat(160.0)
+		public static let maxRowWidth = CGFloat(480.0)
+	}
 }

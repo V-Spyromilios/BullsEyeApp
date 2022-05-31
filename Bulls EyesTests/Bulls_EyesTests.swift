@@ -63,6 +63,16 @@ class Bulls_EyesTests: XCTestCase {
 		XCTAssertEqual(game.score, 0)
 		XCTAssertEqual(game.round, 1)
 	}
+	
+	func testLeaderboard() throws {
+		game.startNewRound(points: 100)
+		XCTAssertEqual(game.round, 2)
+		XCTAssertEqual(game.leaderboardEntries[0].points, 100)
+		game.startNewRound(points: 150)
+		XCTAssertEqual(game.round, 3)
+		XCTAssertEqual(game.leaderboardEntries[0].points, 150)
+		XCTAssertEqual(game.leaderboardEntries[1].points, 100)
+	}
 }
 
 

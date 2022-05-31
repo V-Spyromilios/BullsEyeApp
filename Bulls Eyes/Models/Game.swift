@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct LeaderboardEntry {
+	var points: Int
+	var date: Date
+}
+
 
 struct Game
 {
@@ -14,6 +19,21 @@ struct Game
 	var score: Int = 0
 	var target: Int = Int.random(in: 0...100)
 	var points: Int = 0
+	var leaderboardEntries: [LeaderboardEntry] = []
+
+	init(demoData: Bool = false) {
+		if demoData {
+			self.leaderboardEntries.append(LeaderboardEntry(points: 10, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 8, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 30, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 100, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 90, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 12, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 100, date: Date()))
+			self.leaderboardEntries.append(LeaderboardEntry(points: 50, date: Date()))
+			self.leaderboardEntries.sort{ $0.points > $1.points}
+		}
+	}
 
 	func fn_points(sliderValue: Int) -> Int
 	{
@@ -32,10 +52,11 @@ struct Game
 		}
 	}
 
-	
 	mutating func startNewRound(points: Int) -> Void {
 		round += 1
 		score += points
+		let date: Date = Date()
+		newEntry(leaderboardEntries: leaderboardEntries, points: points, date: date)
 		target = Int.random(in: 1...100)
 	}
 	
@@ -43,7 +64,11 @@ struct Game
 		round  = 1
 		score = 0
 		target = Int.random(in: 1...100)
+		self.leaderboardEntries.removeAll()
+		}
+
+	mutating func newEntry(leaderboardEntries: [LeaderboardEntry], points: Int, date:Date) {
+		self.leaderboardEntries.append(LeaderboardEntry(points: points, date: date)) ///anonymous closure -> {}
+		self.leaderboardEntries.sort{ $0.points > $1.points}   ///self is required as "leaderboardEntries is immutable (let)" ??
 	}
 }
-
-
