@@ -7,38 +7,51 @@
 
 import SwiftUI
 
-struct LeadboardView: View {
+struct LeadboardView: View
+{
 	@Binding var leaderIsVisible: Bool
 	@Binding var game: Game
-	var body: some View {
-		ZStack {
+
+	var body: some View
+	{
+		ZStack
+		{
 			Color("LightBackgroundColor").edgesIgnoringSafeArea(.all)
-			VStack() {
+			VStack()
+			{
 				headerView(leaderIsVisible: $leaderIsVisible)
 				Spacer()
 			labelViews()
-				ScrollView {
-					if (!$game.leaderboardEntries.isEmpty) {
-				VStack(spacing: 8) {
-					ForEach($game.leaderboardEntries.indices) { i in let leaderboardEntry = game.leaderboardEntries[i]
-					rowView(index: i, score: leaderboardEntry.points, date: leaderboardEntry.date)
+				ScrollView
+				{
+					if (!$game.leaderboardEntries.isEmpty)
+					{
+						VStack(spacing: 8)
+						{
+							ForEach($game.leaderboardEntries.indices)
+							{
+								i in let leaderboardEntry = game.leaderboardEntries[i]
+								rowView(index: i, score: leaderboardEntry.points, date: leaderboardEntry.date)
+							}
 						}
-				}
 					}
-					else {
+					else
+					{
 						emptyLeaderView(text: "leaderboard empty!".uppercased()).padding()
 					}
 				}
 				Spacer()
 			}
 		}
-///	if you put here .background(color..).edges.. will push all vstack to edges
 	}
 }
 
-struct emptyLeaderView : View {
+struct emptyLeaderView : View
+{
 	let text: String
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.font(.callout)
 			.kerning(1.0)
@@ -51,49 +64,61 @@ struct emptyLeaderView : View {
 	}
 }
 
-struct rowView: View {
+struct rowView: View
+{
 	let index: Int
 	let score: Int
 	let date: Date
 
-	var body: some View {
-	HStack {
-		leaderIndexView(index: index)
-		Spacer()
-		leaderScoreView(score: score)
-			.frame(width: Constants.Leaderboard.scoreColWidth)
-		Spacer()
-		leaderDateView(date: Date())
-			.frame(width: Constants.Leaderboard.dateColWidth)
-	}
-	.background(RoundedRectangle(cornerRadius: .infinity)
-	.strokeBorder(Color("LeaderboardColor"), lineWidth: Constants.General.strokeWidth))
-	.padding(.leading)
-	.padding(.trailing)
-	.frame(maxWidth: Constants.Leaderboard.maxRowWidth)
+	var body: some View
+	{
+		HStack
+		{
+			leaderIndexView(index: index)
+			Spacer()
+			leaderScoreView(score: score)
+				.frame(width: Constants.Leaderboard.scoreColWidth)
+			Spacer()
+			leaderDateView(date: Date())
+				.frame(width: Constants.Leaderboard.dateColWidth)
+		}
+		.background(RoundedRectangle(cornerRadius: .infinity)
+		.strokeBorder(Color("LeaderboardColor"), lineWidth: Constants.General.strokeWidth))
+		.padding(.leading)
+		.padding(.trailing)
+		.frame(maxWidth: Constants.Leaderboard.maxRowWidth)
 	}
 }
 
-struct headerView: View {
+struct headerView: View
+{
 	@Binding var leaderIsVisible: Bool
 	@Environment(\.verticalSizeClass) var verticalSizeClass
 	@Environment(\.horizontalSizeClass) var horizontalSizeClass
-	var body: some View {
-		ZStack {   /// So bigbold remains centered spacer pushes button to the right of the bigbold
-			HStack {
-				if (verticalSizeClass == .regular && horizontalSizeClass == .compact) {
+
+	var body: some View
+	{
+		ZStack
+		{   /// bigbold  remains centered spacer pushes button to the right of the bigbold
+			HStack
+			{
+				if (verticalSizeClass == .regular && horizontalSizeClass == .compact)
+				{
 					bigBoldText(text: "leaderboard").padding(.leading)
-					 }
-					else {
-						bigBoldText(text: "leaderboard").frame(width: Constants.Leaderboard.maxRowWidth)
-					}
-				withAnimation {
-				Button(action: {leaderIsVisible = false }) {
+				}
+				else
+				{
+					bigBoldText(text: "leaderboard").frame(width: Constants.Leaderboard.maxRowWidth)
+				}
+				withAnimation
+				{
+					Button(action: {leaderIsVisible = false })
+					{
 						RoundedImageFilled(systemName: "xmark")
-						.accessibilityLabel("Close leaderboard")
-						.padding(.top)
-						.padding(.leading)
-						.padding(.trailing)
+							.accessibilityLabel("Close leaderboard")
+							.padding(.top)
+							.padding(.leading)
+							.padding(.trailing)
 					}
 				}
 			}

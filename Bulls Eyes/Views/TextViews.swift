@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct IntructionsView: View {
+struct IntructionsView: View
+{
 	var text: String
 	@Binding var game: Game
-    var body: some View {
-		VStack {
+
+    var body: some View
+	{
+		VStack
+		{
 			Text(text)
 				.foregroundColor(Color("TextColor"))
 				.italic()
@@ -24,10 +28,12 @@ struct IntructionsView: View {
     }
 }
 
-struct BigNumber: View {
+struct BigNumber: View
+{
 	var text:String
-	
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.kerning(-1.0)
 			.font(.title)
@@ -37,12 +43,16 @@ struct BigNumber: View {
 	}
 }
 
-struct sliderView: View {
+struct sliderView: View
+{
 	@Binding var sliderValue: Double
 	var textLeft:String
 	var textRight:String
-	var body: some View {
-		HStack {
+
+	var body: some View
+	{
+		HStack
+		{
 			Text(textLeft)
 				.foregroundColor(Color("TextColor"))
 				.font(.title2).bold()
@@ -58,9 +68,12 @@ struct sliderView: View {
 }
 
 
-struct LabelText: View {
+struct LabelText: View
+{
 	var text: String
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.font(.caption)
 			.bold()
@@ -69,9 +82,12 @@ struct LabelText: View {
 	}
 }
 
-struct BodyText: View {
+struct BodyText: View
+{
 	var text: String
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.font(.subheadline)
 			.fontWeight(.semibold)
@@ -80,9 +96,12 @@ struct BodyText: View {
 	}
 }
 
-struct LeaderboardroundedText: View {
+struct LeaderboardroundedText: View
+{
 	var text: String
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.font(.subheadline)
 			.fontWeight(.semibold)
@@ -91,9 +110,12 @@ struct LeaderboardroundedText: View {
 	}
 }
 
-struct ButtonText: View {
+struct ButtonText: View
+{
 	var text: String
-	var body: some View {
+
+	var body: some View
+	{
 		Text(text)
 			.bold()
 			.padding()
@@ -104,23 +126,26 @@ struct ButtonText: View {
 	}
 }
 
-struct leaderScoreView: View {
+struct leaderScoreView: View
+{
 	let score: Int
 
-	var body: some View {
+	var body: some View
+	{
 		Text(String(score))
 			.bold()
 			.font(.title3)
 			.kerning(-0.2)
 			.foregroundColor(Color("TextColor"))
-			
 	}
 }
 
-struct leaderDateView: View {
+struct leaderDateView: View
+{
 	let date: Date
 
-	var body: some View {
+	var body: some View
+	{
 		Text(date,style: .time)
 			.font(.title3)
 			.bold()
@@ -129,10 +154,12 @@ struct leaderDateView: View {
 	}
 }
 
-struct bigBoldText: View {
+struct bigBoldText: View
+{
 	let text: String
 
-	var body: some View {
+	var body: some View
+	{
 		Text(text.uppercased())
 			.font(.title)
 			.kerning(2.0)
@@ -141,14 +168,17 @@ struct bigBoldText: View {
 	}
 }
 
-struct TextViews_Previews: PreviewProvider {
+struct TextViews_Previews: PreviewProvider
+{
 	@Binding var sliderValue:Double
-	static var previews: some View {
-		VStack {
+
+	static var previews: some View
+	{
+		VStack
+		{
 			IntructionsView(text: "TEST", game: .constant(Game()))
 			BigNumber(text: "42")
 			sliderView(sliderValue: .constant(50.0), textLeft: "0", textRight: "100")
-			
 			LabelText(text: "420")
 			BodyText(text: "You scored 200 points! \n 🎉🎉🎉")
 			ButtonText(text: "Start New Round").padding()
@@ -156,7 +186,6 @@ struct TextViews_Previews: PreviewProvider {
 			leaderDateView(date: Date())
 			Spacer()
 			bigBoldText(text: "leaderboard")
-			
 		}
 	}
 }
