@@ -21,34 +21,36 @@ struct ContentView: View
 			BackgroundView(game: $game)
 			VStack
 			{
-				if (verticalSizeClass == .compact && horizontalSizeClass == .compact && alertIsVisible) {
-					IntructionsView(text: "🎯🎯🎯", game: $game).padding(.bottom, alertIsVisible ? 0: 50).blur(radius: alertIsVisible ? 4: 0) ///alertIsVisible can be specified
-					
+				if (verticalSizeClass == .compact && horizontalSizeClass == .compact && alertIsVisible)
+				{
+				IntructionsView(text: "🎯🎯🎯", game: $game).padding(.bottom, alertIsVisible ? 0: 50).blur(radius: alertIsVisible ? 4: 0) ///alertIsVisible can be specified
 				}
-				else {
+				else
+				{
 				IntructionsView(text: "🎯🎯🎯 \nTry to hit the Target".uppercased(), game: $game).padding(.bottom, alertIsVisible ? 0: 50).blur(radius: alertIsVisible ? 5: 0)
 				}
 				BigNumber(text: String(game.target))
-				if !alertIsVisible {
+				if !alertIsVisible
+				{
 					sliderView(sliderValue: $sliderValue, textLeft: "0", textRight: "100").padding(.bottom, 30).transition(.scale)
 					theButton(alert: $alertIsVisible, sliderValue: $sliderValue, game: $game).transition(.scale)
 				}
-				else {
+				else
+				{
 					PointsView(sliderValue: $sliderValue, game: $game, alertIsVisible: $alertIsVisible).transition(.scale)
 				}
 			}
 		}
 	}
 }
-	struct ContentView_Previews: PreviewProvider {
-		static var previews: some View {
+
+struct ContentView_Previews: PreviewProvider {
+	static var previews: some View {
 //			ContentView()
 //				.preferredColorScheme(.light)
 //				.previewInterfaceOrientation(.landscapeLeft)
-			ContentView()
-				.preferredColorScheme(.dark)
-				.previewInterfaceOrientation(.portrait)
-		}
+		ContentView()
+			.preferredColorScheme(.dark)
+			.previewInterfaceOrientation(.portrait)
 	}
-
-
+}

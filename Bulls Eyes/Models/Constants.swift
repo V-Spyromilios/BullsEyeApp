@@ -20,5 +20,5 @@ enum Constants {
 		public static let scoreColWidth = CGFloat(50.0)
 		public static let dateColWidth = CGFloat(160.0)
 		public static let maxRowWidth = CGFloat(480.0)
-	}
+}
 }

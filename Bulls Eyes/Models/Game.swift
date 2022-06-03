@@ -68,7 +68,7 @@ struct Game
 		}
 
 	mutating func newEntry(leaderboardEntries: [LeaderboardEntry], points: Int, date:Date) {
-		self.leaderboardEntries.append(LeaderboardEntry(points: points, date: date)) ///anonymous closure -> {}
+		self.leaderboardEntries.append(LeaderboardEntry(points: points, date: date))
 		self.leaderboardEntries.sort{ $0.points > $1.points}   ///self is required as "leaderboardEntries is immutable (let)" ??
 	}
 }
