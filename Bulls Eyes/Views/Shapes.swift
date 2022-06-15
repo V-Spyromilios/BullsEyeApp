@@ -16,13 +16,12 @@ struct Shapes: View
 			Ellipse()
 				.inset(by: 10.0)
 				.stroke(Color.yellow, lineWidth: 20.0)
-				.foregroundColor(Color.green)
 				.frame(width: 200.0, height: 200.0, alignment: .center)
 				.background(Color.red)
 				.cornerRadius(30.0)
 			RoundedRectangle(cornerRadius: 40.0)
-				.fill(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/)
-//				.strokeBorder(Color.yellow, lineWidth: 21.0)
+				.stroke(Color.yellow, lineWidth: 21.0)
+				.foregroundColor(Color.green)
 		}
     }
 }

@@ -62,11 +62,9 @@ struct sliderView: View
 				.foregroundColor(Color("TextColor"))
 				.font(.title2).bold()
 				.frame(width: 40.0)
-				.transition(.scale)
 		}
 	}
 }
-
 
 struct LabelText: View
 {

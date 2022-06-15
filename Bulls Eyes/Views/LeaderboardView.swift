@@ -99,7 +99,7 @@ struct headerView: View
 	var body: some View
 	{
 		ZStack
-		{   /// bigbold  remains centered. spacer pushes button to the right of the bigbold
+		{   /// bigBold  remains centered. spacer pushes button to the right of the bigBold
 			HStack
 			{
 				if (verticalSizeClass == .regular && horizontalSizeClass == .compact)

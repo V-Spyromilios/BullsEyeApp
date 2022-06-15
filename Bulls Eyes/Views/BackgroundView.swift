@@ -82,7 +82,7 @@ struct ringsView: View
 			ForEach(1..<6)
 			{
 				ring in let size = CGFloat(ring * 100)
-				let opac = colorScheme == .dark ? 0.1: 0.3
+						let opac = colorScheme == .dark ? 0.1: 0.3
 				Circle()
 					.stroke(lineWidth: Constants.General.ringsStrokeWidth)
 					.fill(RadialGradient(colors: [Color("ringsColor").opacity(opac * 0.8), Color("ringsColor").opacity(0.0)], center:.center, startRadius: 200, endRadius: 300))
@@ -99,6 +99,9 @@ struct BackgroundView_Previews: PreviewProvider
 		BackgroundView(game: .constant(Game()))
 			.preferredColorScheme(.light)
 		//.previewInterfaceOrientation(.landscapeLeft)
-		// Instane Just For Preview
+		
+		BackgroundView(game: .constant(Game()))
+			.preferredColorScheme(.dark)
+		//.previewInterfaceOrientation(.landscapeLeft)
     }
 }
