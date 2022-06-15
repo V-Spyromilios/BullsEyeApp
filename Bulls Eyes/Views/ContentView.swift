@@ -23,7 +23,7 @@ struct ContentView: View
 			{
 				if (verticalSizeClass == .compact && horizontalSizeClass == .compact && alertIsVisible)
 				{
-				IntructionsView(text: "🎯🎯🎯", game: $game).padding(.bottom, alertIsVisible ? 0: 50).blur(radius: alertIsVisible ? 4: 0) ///alertIsVisible can be specified
+				IntructionsView(text: "🎯🎯🎯", game: $game).padding(.bottom, alertIsVisible ? 0: 50).blur(radius: alertIsVisible ? 4: 0)
 				}
 				else
 				{

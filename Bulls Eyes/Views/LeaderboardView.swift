@@ -31,13 +31,13 @@ struct LeadboardView: View
 							ForEach($game.leaderboardEntries.indices)
 							{
 								i in let leaderboardEntry = game.leaderboardEntries[i]
-								rowView(index: i, score: leaderboardEntry.points, date: leaderboardEntry.date)
+								rowView(index: i + 1, score: leaderboardEntry.points, date: leaderboardEntry.date)
 							}
 						}
 					}
 					else
 					{
-						emptyLeaderView(text: "leaderboard empty!".uppercased()).padding()
+						emptyLeaderView(text: "leaderboard is empty!".uppercased()).padding()
 					}
 				}
 				Spacer()
@@ -99,7 +99,7 @@ struct headerView: View
 	var body: some View
 	{
 		ZStack
-		{   /// bigbold  remains centered spacer pushes button to the right of the bigbold
+		{   /// bigbold  remains centered. spacer pushes button to the right of the bigbold
 			HStack
 			{
 				if (verticalSizeClass == .regular && horizontalSizeClass == .compact)
@@ -116,9 +116,7 @@ struct headerView: View
 					{
 						RoundedImageFilled(systemName: "xmark")
 							.accessibilityLabel("Close leaderboard")
-							.padding(.top)
-							.padding(.leading)
-							.padding(.trailing)
+							.padding()
 					}
 				}
 			}
@@ -148,14 +146,15 @@ struct labelViews: View {
 
 
 struct LeaderboardView_Previews: PreviewProvider {
-	static private var game = Binding.constant(Game(demoData: false))
+	static private var game = Binding.constant(Game(demoData: true))
 	static private var leaderIsVisible = Binding.constant(false)
+
 	static var previews: some View {
 		
 		LeadboardView(leaderIsVisible: leaderIsVisible, game: game)
 			.preferredColorScheme(.light)
 			.previewInterfaceOrientation(.landscapeLeft)
-		
+
 		LeadboardView(leaderIsVisible: leaderIsVisible, game: game)
 			.preferredColorScheme(.dark)
 			
